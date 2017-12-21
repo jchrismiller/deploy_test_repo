@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Water Works</title>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+			<h1>H2O - A Big Opportunity</h1>
+			{% if messages %}
+			<div class="messages">
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
+			</div>
+			<div id = "register_pane">
+				{% endif %}
+				<form action = "/registration" method = "POST">
+					<h1>Sign Up!</h1>
+					{% csrf_token %}
+					<p>Email <input type="text" name="email"></p>
+					<p>First Name <input type="text" name="first_name" value =  "{{ request.session.first_name }}" ></p>
+					<p>Last Name <input type="text" name="last_name"></p>
+					<p>Address <input type="text" name="address"></p>
+					<p>Credit Card # <input type="text" name="credit_card"></p>
+					<p>Password <input type="text" name="password"></p>
+					<p>Confirm Pass <input type="text" name="confirm_password"></p>
+					<p><input type="submit" name = "register" value="Register"></p>
+				</form>
+			</div> <!-- end register_pane -->
+			<div class = 'register_right'>
+				<p>Water connects every aspect of life. Access to safe water and sanitation can quickly turn problems into potential - unlocking education, work opportunities, and improved health for women, children and families accross the world</p>
+				<p>Today, <span>1 in 9</span> people lack access to safe water; <span>1 in 3</span> people lack access to a toilet. More people have a mobile phone than a toilet. We can change this. Let's work together to make the power of water available to all.</p>
+				<form action = "/login" method="POST">
+					<h1>Login</h1>
+					{% csrf_token %}
+					<p>Email: <input type="text" name="email"></p>
+					<p>Password: <input type="text" name="password"></p>
+					<p><input type="submit" name="login" value="Login"></p>
+				</form>
+			</div>
+
+	</body>
+</html>

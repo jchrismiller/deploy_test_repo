@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login and Reg | Success</title>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+		<div class = "main_left">
+			<a href="/logout">Log Out</a>
+			<p>The water crisis is a health crisis. Access to safe water and sanitation means opportunity for improved health and the ability to help fight disease. It means reduced physical injury from constant lifting and carrying heavy loads of water. It means reduced child and maternal mortality rates. And it means reduced risk of rape, sexual assault and increased safety as women and girls do not have to to go remote and dangerous places to relieve themselves. Visit <a href="https://water.org">water.org</a> for more details and use this app to drop-ship reuseable 1 gallon water jugs via solar-powered drones.</p>
+	<!-- 	{% if messages %}
+		<div class="messages">
+			{% for message in messages %}
+			<p>{{ message }}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<div> -->
+		<div class = "donations">
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Gallons Received</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Ship H2O</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+					<!-- {% for gallon in gallons %} -->
+					<tr>						
+						<td><!-- {% if gallon.recipient_id == user.id %}
+								{{ gallon.counter }}
+							{% endif %} -->
+						</td>
+						{% endfor %}
+						<td>{{ user.first_name }} {{ user.last_name }}</td>
+						<td>{{ user.address }}</td>
+						<td><form action = "/ship/{{ user.id }}" method = "POST">{% csrf_token %}<input type = "submit" name = "send" value = "Ship"></form></td>
+					</tr>					
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<div class = "main_right">
+			<p id = "welcome">Welcome, {{ current_user.first_name }} </p>
+		</div>
+	</body>
+</html>

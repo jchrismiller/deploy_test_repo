@@ -1,0 +1,41 @@
+body{
+	font-family: "Arial";
+}
+
+.main_left{
+	display: inline-block;
+	width: 700px;
+}
+.main_right{
+	display: inline-block;
+	vertical-align: top;
+	width: 400px;
+}
+
+#welcome{
+	font-weight: strong;
+	text-align: right;
+}
+#register_pane{
+	display: inline-block;
+	width: 400px;
+}
+.register_right{
+	display: inline-block;
+	width: 700px;
+	text-align: left;
+	margin-left: 200px;
+}
+form{
+	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+}
+th{
+	text-align: left;
+	padding-right: 30px;
+}
+td{
+	text-align: left;
+	padding-right: 30px;
+}
